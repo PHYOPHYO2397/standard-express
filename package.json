@@ -1,0 +1,24 @@
+{
+  "name": "standard-express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PHYOPHYO2397/standard-express.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PHYOPHYO2397/standard-express/issues"
+  },
+  "homepage": "https://github.com/PHYOPHYO2397/standard-express#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
