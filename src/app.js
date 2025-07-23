@@ -1,7 +1,5 @@
-import express from "express";
+import express, { urlencoded } from "express";
 import cors from "cors";
-
-//TEST git ignore
 
 const app = express();
 app.use(
@@ -11,4 +9,17 @@ app.use(
   })
 );
 
+app.use(
+  express.json({
+    limit: "16kb",
+  })
+);
+
+app.use(
+  express.urlencoded({
+    extended: true,
+  })
+);
+
+app.use(express.static("public"));
 export { app };
