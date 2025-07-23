@@ -1,4 +1,4 @@
-# 🚀 Express Server Demo
+# 🚀 Standard Express Server Demo
 
 A simple and modular Express.js server setup with various middlewares, MongoDB connection using Mongoose, and environment-based configuration.
 
