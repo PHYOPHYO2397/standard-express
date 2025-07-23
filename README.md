@@ -29,5 +29,3 @@ A simple and modular Express.js server setup with various middlewares, MongoDB c
 
 ---
 
-## 📁 Project Structure
-
