@@ -1,5 +1,6 @@
 import express, { urlencoded } from "express";
 import cors from "cors";
+import test from "./routes/test";
 
 const app = express();
 app.use(
@@ -22,4 +23,6 @@ app.use(
 );
 
 app.use(express.static("public"));
+
+app.use("/", test);
 export { app };
