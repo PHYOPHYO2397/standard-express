@@ -1,6 +1,6 @@
 import express, { urlencoded } from "express";
 import cors from "cors";
-import test from "./routes/test";
+import router from "./routes/test.js";
 
 const app = express();
 app.use(
@@ -24,5 +24,6 @@ app.use(
 
 app.use(express.static("public"));
 
-app.use("/", test);
+app.use("/controller", router);
+
 export { app };
