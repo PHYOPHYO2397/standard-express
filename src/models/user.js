@@ -14,6 +14,8 @@ users[icon:users]{
 import mongoose, { Schema } from "mongoose";
 import mongooseAggregatePaginate from "mongoose-aggregate-paginate-v2";
 import bcrypt from bcrypt;
+import jwt from jsonwebtoken;
+
 //create Scheme
 const userSchema = new Schema(
   {
@@ -61,11 +63,33 @@ userSchema.pre('save',async function(next){
 
 })
 
-userSchema.methods.isPasswordMatch(async function(password){
+userSchema.methods.isPasswordMatch=async function(password){
 
           return await bcrypt.compare(password,this.password)
 
-});
+};
+
+userSchema.methods.generateAccessToken = async function(){
+          jwt.sign({
+                    _id:this._id,
+                    email:this.email,
+                    username:this.username
+          },process.env.ACCESS_TOKEN_SECRET_KEY,{
+                    expiresIn:process.env.ACCESS_TOKEN_EXP
+          })
+
+};
+
+userSchema.methods.generateRefreshToken = async function(){
+          jwt.sign({
+                    _id:this._id,
+                    email:this.email,
+                    username:this.username
+          },process.env.REFRESH_TOKEN_SECRET_KEY,{
+                    expiresIn:process.env.REFRESH_TOKEN_EXP
+          })
+
+};
 userSchema.plugin(mongooseAggregatePaginate);
 //Export to be able to use from other schema
 export const User = mongoose.model("User", userSchema);
