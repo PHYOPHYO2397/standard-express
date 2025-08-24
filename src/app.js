@@ -2,6 +2,7 @@ import express, { urlencoded } from "express";
 import cors from "cors";
 import router from "./routes/test.js";
 import cookieParser from "cookie-parser";
+import registerRouter from "./routes/auth.js";
 
 const app = express();
 app.use(
@@ -10,6 +11,8 @@ app.use(
     credentials: true,
   })
 );
+
+//app.use(express.json());
 
 app.use(
   express.json({
@@ -27,5 +30,6 @@ app.use(express.static("public"));
 
 app.use("/controller", router);
 app.use(cookieParser());
+app.use("/api/v1", registerRouter);
 
 export { app };
