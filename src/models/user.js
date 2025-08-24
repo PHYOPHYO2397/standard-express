@@ -12,7 +12,7 @@ users[icon:users]{
 */
 
 import mongoose, { Schema } from "mongoose";
-import mongooseAggregatePaginate from "mongoose-aggregate-paginate-v2";
+//import mongooseAggregatePaginate from "mongoose-aggregate-paginate-v2";
 import bcrypt from bcrypt;
 import jwt from jsonwebtoken;
 
@@ -43,6 +43,13 @@ const userSchema = new Schema(
     profilePhoto: {
       type: String,
     },
+    coverPhoto:{
+      type:String
+    },
+    refreshToken:{
+      type:String
+    }
+    ,
     posts: [
       {
         type: Schema.Types.ObjectId,
@@ -90,6 +97,6 @@ userSchema.methods.generateRefreshToken = async function(){
           })
 
 };
-userSchema.plugin(mongooseAggregatePaginate);
+//userSchema.plugin(mongooseAggregatePaginate);
 //Export to be able to use from other schema
 export const User = mongoose.model("User", userSchema);

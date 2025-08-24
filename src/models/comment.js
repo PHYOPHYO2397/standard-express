@@ -6,7 +6,7 @@ comments[icon:message-square]{
 }*/
 
 import mongoose, { Schema } from "mongoose";
-import mongooseAggregatePaginate from "mongoose-aggregate-paginate-v2";
+//import mongooseAggregatePaginate from "mongoose-aggregate-paginate-v2";
 
 //import { User } from "./user";
 const commentSchema = new Schema(
@@ -24,6 +24,6 @@ const commentSchema = new Schema(
     timestamps: true,
   }
 );
-commentSchema.plugin(mongooseAggregatePaginate);
+//commentSchema.plugin(mongooseAggregatePaginate);
 
 export const Comment = mongoose.model("Comment", commentSchema);

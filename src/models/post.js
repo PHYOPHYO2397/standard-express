@@ -6,7 +6,7 @@
 }*/
 
 import mongoose, { Schema } from "mongoose";
-import mongooseAggregatePaginate from "mongoose-aggregate-paginate-v2";
+//import mongooseAggregatePaginate from "mongoose-aggregate-paginate-v2";
 
 const postSchema = new Schema(
   {
@@ -30,5 +30,5 @@ const postSchema = new Schema(
     timestamps: true,
   }
 );
-postSchema.plugin(mongooseAggregatePaginate);
+//postSchema.plugin(mongooseAggregatePaginate);
 export const Post = mongoose.model("Post", postSchema);
