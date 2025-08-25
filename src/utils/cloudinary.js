@@ -1,4 +1,6 @@
 import { v2 as cloudinary } from "cloudinary";
+import dotenv from "dotenv";
+dotenv.config();
 // Configuration
 cloudinary.config({
   cloud_name: "dostc1ecb",
@@ -10,8 +12,8 @@ export const uploadFileToCloud = async (filePath) => {
   try {
     if (!filePath) return null;
     // Upload an image
-    const response = await cloudinary.uploader.upload(filepath, {
-      resource_type: auto,
+    const response = await cloudinary.uploader.upload(filePath, {
+      resource_type: "auto",
     });
     console.log("File Upload Completed", response.url);
   } catch (error) {
